@@ -60,7 +60,7 @@ void setup()
   {
     for(int x=1; x<6; x++)
     {
-      fenster[x][y].set(true,false,x,y,int(random(7)));
+      fenster[x][y].set(true,false,x,y,int(random(8)));
       cardSizeXField[x][y] = cardSizeX;
       connectedField[x][y] = false;
     }

@@ -29,8 +29,6 @@ void ifFlipSet() //animation player
         
         tStart2 = millis();
         animFlipCorners1 = true;
-        
-        blockInput=false;
       }
       else if(!falscheAntwort) //normalfall wenn richtig
       {
@@ -76,7 +74,7 @@ void ifFlipSet() //animation player
         for(int x=1; x<6; x++)
         {
           if(connectedField[x][y]) fenster[x][y].faceUp = false;
-          if(connectedField[x][y]) fenster[x][y].val = int(random(7)); //neuer random value wenn flipped
+          if(connectedField[x][y]) fenster[x][y].val = int(random(8)); //neuer random value wenn flipped
         }
       }
       tStart = millis();

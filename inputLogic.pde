@@ -1,6 +1,6 @@
 void mousePressed()
 {
-  if(strafeAktiv) //wenn strafe ist click to continue
+  if(strafeAktiv&&millis() > tStart3 + 1000) //wenn strafe ist click to continue
   {
     strafeAktiv=!strafeAktiv;
     strafeDelay = false;
