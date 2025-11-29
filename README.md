@@ -10,6 +10,4 @@ Für jede in ihrem Zug ausgetauschte Karte bekommen sie eine Strafe.
 
 Liegt eine verdeckte Karte zwischen zwei oder drei offenen Karten wird zwischen innerhalb oder außerhalb im Bezug auf den kleinsten und größten der Werte entschieden, beziehungsweise gleich zu einem der beliebigen Werte.
 
-Sollte der Wert der aufgedeckten Karte dem der vorigen Karte gleichen, wird ihre Aussage immer als richtig gewertet.
-
-Das Spiel endet sobald entweder alle Karten erfolgreich aufgedeckt wurden, oder ein Spieler keine Einsätze mehr bieten kann.
+Sollte das Fenster von einem Spieler komplett geöffnet werden, darf dieser 42 Strafen unter seinen Mitspielern aufteilen.
