@@ -43,6 +43,8 @@ void setup()
   rectMode(CENTER);
   textAlign(CENTER,CENTER);
   textSize(32);
+  strokeWeight(2);
+  stroke(100);
   
   //init leere karten großer array
   for(int y=0; y<7; y++)
@@ -73,8 +75,20 @@ void setup()
 
 void draw()
 {
-  background(200);
+  background(240);
   ifFlipSet();
   drawCards();
   strafe();
+  overlay();
+}
+
+void overlay()
+{
+    //overlay drawen
+    textAlign(LEFT,TOP);
+    textSize(20);
+    fill(100);
+    text("[LMB] Höher / Innerhalb\n[LMB] Niedriger / Außerhalb \n[MMB] Gleich",8,8);
+    textAlign(CENTER,CENTER);
+    textSize(32);
 }

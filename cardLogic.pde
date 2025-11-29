@@ -38,7 +38,7 @@ void drawCards()
         fill(255);
         rect(cardPos.x,cardPos.y,cardSizeXField[x][y],cardSizeY,5);
         
-        fill(0);
+        fill(100);
         if(fenster[x][y].faceUp) text(valConvert(fenster[x][y].val),cardPos.x,cardPos.y);
       }
     }
