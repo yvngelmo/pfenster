@@ -61,16 +61,41 @@ void getActiveNeighbors(PVector card)
       if(x==0 && y==0) continue; //karte skipt sich selbst
       if(x!=0 && y!=0) continue; //diagonalen skippen
       
-      if(fenster[int(card.x+x)][int(card.y+y)].faceUp) //wenn nachbar aufgedeckt
+      int setX = int(card.x+x); //gecheckte karte
+      int setY = int(card.y+y);
+      
+      if(fenster[setX][setY].faceUp) //wenn nachbar aufgedeckt
       {
-        if(neighborAmt==0) activeNeighbor1.set(int(card.x+x),int(card.y+y)); //erster gefundener nachbar
-        else if(neighborAmt==1) activeNeighbor2.set(int(card.x+x),int(card.y+y)); //zweiter
-        else if(neighborAmt==2) activeNeighbor3.set(int(card.x+x),int(card.y+y)); //dritter
+        if(neighborAmt==0) activeNeighbor1.set(setX,setY); //erster gefundener nachbar
+        else if(neighborAmt==1) activeNeighbor2.set(setX,setY); //zweiter
+        else if(neighborAmt==2) activeNeighbor3.set(setX,setY); //dritter
         
         neighborAmt++; //gefundene nachbarn zählen
       }
     }
   }
+}
+
+void writeConnectedToField(PVector card) //connected karten in bool connectedField writen
+{
+  int x = int(card.x);
+  int y = int(card.y);
+  
+  if(connectedField[x][y]||!fenster[x][y].enabled) return; //wurde karte schonmal gecheckt oder ist disabled? wenn ja dann raus hier
+  
+  connectedField[x][y]=true; //wenn nicht dann karte auf true setzen
+  getActiveNeighbors(card); //welche nachbarn?
+  
+  //nachbarn lokal speichern damit nicht corrupted wird wenn mehrmals ausführt
+  int localNeighborAmt = neighborAmt;
+  PVector neighbor1 = new PVector(activeNeighbor1.x, activeNeighbor1.y);
+  PVector neighbor2 = new PVector(activeNeighbor2.x, activeNeighbor2.y);
+  PVector neighbor3 = new PVector(activeNeighbor3.x, activeNeighbor3.y);
+  
+  //rekursiv funktion für alle nachbarn ausführen
+  if(localNeighborAmt >= 1) writeConnectedToField(neighbor1);
+  if(localNeighborAmt >= 2) writeConnectedToField(neighbor2);
+  if(localNeighborAmt >= 3) writeConnectedToField(neighbor3);
 }
 
 void setCheck()
@@ -89,8 +114,26 @@ void setCheck()
   }
 }
 
-void richtigOderFalsch()
+void richtigOderFalsch(PVector card)
 {
-  if(guess==answer) println("richtig");
-  else falscheAntwort=true;
+  PVector cardPos = card; //welche karte?
+  
+  if(guess==answer) //richtig
+  {
+    //passiert was wenn richtig?
+  }
+  else //falsch
+  {
+    //connected field resetten
+    for(int y=1; y<6; y++)
+    {
+      for(int x=1; x<6; x++)
+      {
+        connectedField[x][y]=false;
+      }
+    }
+    //checken welche verbunden sind
+    writeConnectedToField(cardPos);
+    falscheAntwort=true; //animation abspielen
+  }
 }

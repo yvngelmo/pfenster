@@ -5,15 +5,18 @@ boolean animFlipAll1=false;
 boolean animFlipAll2=false;
 boolean animFlipCorners1=true;
 boolean animFlipCorners2=false;
-boolean animHover=false;
-boolean animHoverBack=false;
+boolean corner1Flipped = false;
+boolean corner2Flipped = false;
+boolean corner3Flipped = false;
+boolean corner4Flipped = false;
 boolean blockInput=false;
 int flipSelectedX, flipSelectedY, tStart, tStart2;
 
-//init cardsize, array für flip
+//init cardsize, array für flip, array für connected
 int cardSizeX = 60;
 int cardSizeY = 100;
 float[][] cardSizeXField = new float[7][7];
+boolean[][] connectedField = new boolean[7][7];
 
 //init fenster array
 karte[][] fenster = new karte[7][7];
@@ -51,6 +54,7 @@ void setup()
     {
       fenster[x][y].set(true,false,x,y,int(random(7)));
       cardSizeXField[x][y] = cardSizeX;
+      connectedField[x][y] = false;
     }
   }
   

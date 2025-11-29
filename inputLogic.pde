@@ -20,7 +20,7 @@ void mousePressed()
         //welcher algo?+algo
         setCheck();
         //ist guess = lösung?
-        richtigOderFalsch();
+        richtigOderFalsch(card);
   
         flipCard(int(card.x),int(card.y)); //cardflip ausführen
       }
