@@ -21,12 +21,12 @@ void strafe()
       }
     }
     //scene drawen
-    fill(0,130);
+    fill(100,175);
     noStroke();
     rect(width/2,height/2,width,50);
-    stroke(0);
+    stroke(100);
     
     fill(255);
-    text("STRAFE: "+strafe+" SCHLÜCKE",width/2,height/2);
+    text("Strafe: "+strafe+" Schlücke",width/2,height/2);
   }
 }
