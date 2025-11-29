@@ -135,5 +135,6 @@ void richtigOderFalsch(PVector card)
     //checken welche verbunden sind
     writeConnectedToField(cardPos);
     falscheAntwort=true; //animation abspielen
+    strafeAktiv = true; //strafe scene
   }
 }

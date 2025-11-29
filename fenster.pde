@@ -12,6 +12,12 @@ boolean corner4Flipped = false;
 boolean blockInput=false;
 int flipSelectedX, flipSelectedY, tStart, tStart2;
 
+//strafe value
+int strafe = 0;
+int tStart3 = 0;
+boolean strafeAktiv = false;
+boolean strafeDelay = false;
+
 //init cardsize, array für flip, array für connected
 int cardSizeX = 60;
 int cardSizeY = 100;
@@ -70,4 +76,5 @@ void draw()
   background(200);
   ifFlipSet();
   drawCards();
+  strafe();
 }
